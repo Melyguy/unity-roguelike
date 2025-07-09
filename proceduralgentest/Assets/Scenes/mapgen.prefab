@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3044395345942510750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3803407569096605608}
+  - component: {fileID: 3497189025700654560}
+  - component: {fileID: 2463341908122518072}
+  - component: {fileID: 8436024399783641873}
+  m_Layer: 0
+  m_Name: mapgen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3803407569096605608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3044395345942510750}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3497189025700654560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3044395345942510750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c18b67cbbdc5324a9d3c88cd34e0384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawMode: 2
+  EditorPreviewLOD: 0
+  noiseScale: 50
+  normalizeMode: 0
+  octaves: 4
+  persistance: 0.415
+  lacunarity: 2.22
+  seed: 7147
+  offset: {x: 0, y: 0}
+  useFalloff: 1
+  meshHeightMultiplier: 19
+  meshHeightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  autoUpdate: 1
+  Regions:
+  - name: deepocean
+    height: 0
+    color: {r: 0, g: 0.05904537, b: 0.5377358, a: 0}
+  - name: ocean
+    height: 0.26
+    color: {r: 0, g: 0.13275027, b: 1, a: 0}
+  - name: sand
+    height: 0.28
+    color: {r: 0.75294125, g: 0.6862745, b: 0.38823533, a: 1}
+  - name: grass
+    height: 0.4
+    color: {r: 0.20141596, g: 0.7056604, b: 0.15844065, a: 1}
+  - name: land
+    height: 0.6
+    color: {r: 0, g: 0.6603774, b: 0.01245998, a: 0}
+  - name: higherland
+    height: 0.63
+    color: {r: 0, g: 0.4339623, b: 0.022027317, a: 0}
+  - name: highlands
+    height: 0.68
+    color: {r: 0.080514014, g: 0.31132078, b: 0, a: 0}
+  - name: rocky
+    height: 0.72
+    color: {r: 0.3207547, g: 0.28668565, b: 0.2681025, a: 0}
+  - name: mountain
+    height: 0.8
+    color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 0}
+  - name: snowy
+    height: 0.85
+    color: {r: 0.7584905, g: 0.7312993, b: 0.7312993, a: 0}
+  - name: snow
+    height: 0.9
+    color: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &2463341908122518072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3044395345942510750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe90f2f7b5380cd4986776456aaecb84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textureRender: {fileID: 0}
+  meshFilter: {fileID: 0}
+  meshRenderer: {fileID: 0}
+  meshCollider: {fileID: 0}
+--- !u!114 &8436024399783641873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3044395345942510750}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acda1c0d6d6399b46ada0f2e71deefee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detailLevels:
+  - lod: 0
+    visibleDstThreshold: 200
+  - lod: 1
+    visibleDstThreshold: 400
+  - lod: 2
+    visibleDstThreshold: 600
+  Viewer: {fileID: 0}
+  mapMaterial: {fileID: 2100000, guid: 0e7f3760708bcf34681394866bc39267, type: 2}
