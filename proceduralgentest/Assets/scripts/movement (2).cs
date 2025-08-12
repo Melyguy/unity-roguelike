@@ -141,10 +141,16 @@ public class movement : MonoBehaviour
     {
         movedir = orient.forward * verticalinput + orient.right * horizantalinput;
         rb.AddForce(movedir.normalized * moveSpeed * 10f, ForceMode.Force);
-
+        // Animation check
+        if (movedir.magnitude > 0.1f) // small threshold so tiny input doesn’t trigger running
+            animator.SetBool("Running", true);
+        else
+            animator.SetBool("Running", false);
         if (grounded)
+        {
             rb.AddForce(movedir.normalized * moveSpeed * 10f, ForceMode.Force);
-        else if(!grounded)
+        }
+        else if (!grounded)
             rb.AddForce(movedir.normalized * moveSpeed * 10f * airmulti, ForceMode.Force);
 
 
