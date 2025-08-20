@@ -12,6 +12,7 @@ public class LightingManager : MonoBehaviour
 
     public bool isNight = false;
     public float secondsInDay = 600f;
+    public int daysPassed = 0;
 
 
     private void UpdateLighting(float timePercent)
