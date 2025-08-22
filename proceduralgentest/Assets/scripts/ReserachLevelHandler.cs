@@ -9,12 +9,14 @@ public class ReserachLevelHandler : MonoBehaviour
 
     public float XP = 0f;
     public int crystals = 0;
+    public int shrooms = 0;
     public float XPToNextLevel = 100f;
     public int Level = 0;
     public Slider Slider;
     public TextMeshProUGUI LevelText;
     public TextMeshProUGUI OtherText;
     public TextMeshProUGUI crystalText;
+    public TextMeshProUGUI ShroomsText;
 
     public Animator animator;
 

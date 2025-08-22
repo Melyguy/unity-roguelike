@@ -1,10 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class PressKeyOpenDoor : MonoBehaviour
+public class ShroomCollecting : MonoBehaviour
 {
 
     public GameObject Door;
@@ -54,10 +55,10 @@ public class PressKeyOpenDoor : MonoBehaviour
                 actions2 = true;
                 audioSource.Play();
                 opened = true;
-                ResarchHandler.crystals += 1;
+                ResarchHandler.shrooms += 1;
                 ResarchHandler.XP += XPGain;
                 //Door.GetComponent<Animator>().Play("door");
-                Debug.Log("sigma");
+                //Debug.Log("sigma");
             }
 
         }
