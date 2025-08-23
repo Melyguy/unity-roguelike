@@ -17,6 +17,7 @@ public class movement : MonoBehaviour
     public LayerMask whatisgrnd;
 
     public Animator animator;
+    public AudioSource Footsteps;
 
     [Header("crouching")]
     public float crouchspeed;
@@ -142,10 +143,18 @@ public class movement : MonoBehaviour
         movedir = orient.forward * verticalinput + orient.right * horizantalinput;
         rb.AddForce(movedir.normalized * moveSpeed * 10f, ForceMode.Force);
         // Animation check
-        if (movedir.magnitude > 0.1f) // small threshold so tiny input doesn’t trigger running
+        if (movedir.magnitude > 0.1f)
+        { // small threshold so tiny input doesn’t trigger running
             animator.SetBool("Running", true);
+            Footsteps.enabled = true;
+        }
         else
+        {
+
+
             animator.SetBool("Running", false);
+            Footsteps.enabled = false;
+        }
         if (grounded)
         {
             rb.AddForce(movedir.normalized * moveSpeed * 10f, ForceMode.Force);

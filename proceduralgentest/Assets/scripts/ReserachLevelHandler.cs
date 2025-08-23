@@ -16,13 +16,25 @@ public class ReserachLevelHandler : MonoBehaviour
     public TextMeshProUGUI LevelText;
     public TextMeshProUGUI OtherText;
     public TextMeshProUGUI crystalText;
-    public TextMeshProUGUI ShroomsText;
+    public movement movement;
+    public bool isInfected = false;
+    public bool isMutated = false;
+
+
+    //ts is not effective, but idrc
+    public GameObject RockHip;
+    public GameObject RockHead;
+    public GameObject RockShoulder;
+    public GameObject RockUArm;
+    public GameObject RockUNArm;
+    public GameObject RockHand;
+
 
     public Animator animator;
 
     void Start()
     {
-        
+        movement = FindObjectOfType<movement>();
     }
 
     void Update()
@@ -41,12 +53,37 @@ public class ReserachLevelHandler : MonoBehaviour
         if(Level >= 5) {
             OtherText.text = "Infection LV:";
             animator.SetBool("Infected", true);
+            if(!isInfected)
+            {
+                isInfected = true;
+                movement.moveSpeed += 2f;
+                movement.movepeedcontrol += 2f;
+                RockHead.SetActive(true);
+                RockHip.SetActive(true);
+                RockShoulder.SetActive(true);
+            }
 
         }
         if (Level >= 10)
         {
             OtherText.text = "Mutation LV:";
+            animator.SetBool("Mutated", true);
+            if (!isMutated)
+            {
+                isMutated = true;
+                movement.moveSpeed += 5f;
+                movement.movepeedcontrol += 5f;
+                RockUArm.SetActive(true);
+                RockUNArm.SetActive(true);
+                RockHand.SetActive(true);
 
+            }
+        }
+
+        if(crystals >= 10)
+        {
+            XP += crystals * 10;
+            crystals -= 10;
         }
     }
 }

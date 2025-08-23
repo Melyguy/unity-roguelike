@@ -8,13 +8,13 @@ public class PressKeyOpenDoor : MonoBehaviour
 {
 
     public GameObject Door;
-    public TextMeshProUGUI instruct;
+    public GameObject instruct;
     public GameObject Player;
     public AudioSource audioSource;
     public TextMeshProUGUI ins2;
     public int XPGain = 15;
-    public bool harvested = false;
-
+    public bool harvestable = true;
+    public LightingManager lightingManager;
     public bool actions = false;
     public bool opened = false;
     public bool actions2 = false;
@@ -22,19 +22,20 @@ public class PressKeyOpenDoor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        instruct.enabled = false;
+        instruct.SetActive(false);
+        lightingManager = FindObjectOfType<LightingManager>();
     }
 
     void OnTriggerEnter(Collider col)
     {
         actions = true;
-        ins2.enabled = true;
+        instruct.SetActive(true);
 
     }
 
     private void OnTriggerExit(Collider col)
     {
-        instruct.enabled = false;
+        instruct.SetActive(false);
         actions = false;
         ins2.enabled = false;
     }
@@ -42,13 +43,12 @@ public class PressKeyOpenDoor : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && harvestable == true)
         {
-            if (actions == true && harvested == false)
+            if (actions == true)
             {
-                harvested = true;
                 ReserachLevelHandler ResarchHandler = FindObjectOfType<ReserachLevelHandler>();
-                instruct.enabled = false;
+                instruct.SetActive(false);
                 //Door.GetComponent<Animator>().Play("DoorOpen");
                 actions = false;
                 actions2 = true;
@@ -60,6 +60,14 @@ public class PressKeyOpenDoor : MonoBehaviour
                 Debug.Log("sigma");
             }
 
+        }
+        if (lightingManager.isNight)
+        {
+            harvestable = false;
+        }
+        else
+        {
+            harvestable = true;
         }
     }
 }
