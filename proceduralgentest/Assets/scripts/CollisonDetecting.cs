@@ -5,7 +5,7 @@ using UnityEngine;
 public class CollisonDetecting : MonoBehaviour
 {
     public MeleeWeapoController WC;
-    //public GameObject HitParticle;
+    public GameObject HitParticle;
     public float Damage = 100f;
     public bool hasHit = false;
 
@@ -19,8 +19,8 @@ public class CollisonDetecting : MonoBehaviour
             hasHit = true;
             //other.GetCOmponent<Animator>().SetTrigger("Hit");
 
-            /*Instantiate(HitParticle, new Vector3(other.transform.position.x,
-                 transform.position.y, other.transform.position.z), other.transform.rotation);*/
+            Instantiate(HitParticle, new Vector3(other.transform.position.x,
+                 transform.position.y, other.transform.position.z), other.transform.rotation);
             enemyHP targetdmg = other.GetComponent<enemyHP>();
             if (targetdmg != null)
             {
