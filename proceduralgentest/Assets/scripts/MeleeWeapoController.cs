@@ -10,9 +10,6 @@ public class MeleeWeapoController : MonoBehaviour
 
     public Animator anim;
 
-    public GameObject sword1; 
-    public GameObject sword2;
-    public bool swordchange = false;
     //public float animwait = 1,5f;
 
     public float Atckcd = 1.0f;
@@ -20,6 +17,8 @@ public class MeleeWeapoController : MonoBehaviour
     public float attacktime = 0.3f;
     public float combocd = 0.3f;
     public float attacks = 0f;
+    public AudioSource slash1SFX;
+    public AudioSource slash2SFX;
 
 
     void Update()
@@ -37,11 +36,7 @@ public class MeleeWeapoController : MonoBehaviour
             }
 
         }
-        if(swordchange == true)
-        {
-            sword1.SetActive(false);
-            sword2.SetActive(true);
-        }
+
 
 
     }
@@ -53,6 +48,7 @@ public class MeleeWeapoController : MonoBehaviour
         anim.SetTrigger("attack");
         StartCoroutine(ResetCombocld());
         isAttacking = true;
+        slash1SFX.Play();
     }
     public void SwordAtck2()
     {
@@ -60,6 +56,7 @@ public class MeleeWeapoController : MonoBehaviour
         anim.SetTrigger("attack2");
         StartCoroutine(ResetCombocld());
         isAttacking = true;
+        slash2SFX.Play();
     }
 
 

@@ -64,6 +64,7 @@ public class PressKeyOpenDoor : MonoBehaviour
         if (lightingManager.isNight)
         {
             harvestable = false;
+            instruct.SetActive(false);
         }
         else
         {

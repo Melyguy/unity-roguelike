@@ -146,7 +146,8 @@ public class movement : MonoBehaviour
         if (movedir.magnitude > 0.1f)
         { // small threshold so tiny input doesn’t trigger running
             animator.SetBool("Running", true);
-            Footsteps.enabled = true;
+            if(grounded)
+                Footsteps.enabled = true;
         }
         else
         {

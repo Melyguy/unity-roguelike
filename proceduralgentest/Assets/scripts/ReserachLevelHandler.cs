@@ -13,21 +13,18 @@ public class ReserachLevelHandler : MonoBehaviour
     public float XPToNextLevel = 100f;
     public int Level = 0;
     public Slider Slider;
+    public Image SliderFill;
     public TextMeshProUGUI LevelText;
     public TextMeshProUGUI OtherText;
     public TextMeshProUGUI crystalText;
     public movement movement;
     public bool isInfected = false;
     public bool isMutated = false;
-
+    public bool isEvolved = false;
+    public MeleeWeapoController meleeWeaponController;
 
     //ts is not effective, but idrc
-    public GameObject RockHip;
-    public GameObject RockHead;
-    public GameObject RockShoulder;
-    public GameObject RockUArm;
-    public GameObject RockUNArm;
-    public GameObject RockHand;
+    public GameObject[] RockParts;
 
 
     public Animator animator;
@@ -35,6 +32,7 @@ public class ReserachLevelHandler : MonoBehaviour
     void Start()
     {
         movement = FindObjectOfType<movement>();
+        meleeWeaponController = FindObjectOfType<MeleeWeapoController>();
     }
 
     void Update()
@@ -53,14 +51,18 @@ public class ReserachLevelHandler : MonoBehaviour
         if(Level >= 5) {
             OtherText.text = "Infection LV:";
             animator.SetBool("Infected", true);
+
             if(!isInfected)
             {
                 isInfected = true;
+                SliderFill.color = Color.green;
                 movement.moveSpeed += 2f;
                 movement.movepeedcontrol += 2f;
-                RockHead.SetActive(true);
-                RockHip.SetActive(true);
-                RockShoulder.SetActive(true);
+                movement.jumpForce += 4f;
+               RockParts[0].SetActive(true);
+               RockParts[1].SetActive(true);
+               RockParts[2].SetActive(true);
+               RockParts[6].SetActive(true);
             }
 
         }
@@ -72,15 +74,35 @@ public class ReserachLevelHandler : MonoBehaviour
             {
                 isMutated = true;
                 movement.moveSpeed += 5f;
+                SliderFill.color = Color.red;
                 movement.movepeedcontrol += 5f;
-                RockUArm.SetActive(true);
-                RockUNArm.SetActive(true);
-                RockHand.SetActive(true);
+                movement.jumpForce += 4f;
+                RockParts[3].SetActive(true);
+                RockParts[4].SetActive(true);
+                RockParts[5].SetActive(true);
 
             }
         }
+        if (Level >= 15)
+        {
+            OtherText.text = "Evolved LV:";
+            animator.SetBool("Evolved", true);
+            if (!isEvolved)
+            {
+                isEvolved = true;
+                movement.moveSpeed += 5f;
+                SliderFill.color = Color.black;
+                movement.movepeedcontrol += 5f;
+                movement.jumpForce += 4f;
+                RockParts[7].SetActive(true);
+                RockParts[8].SetActive(true);
+                RockParts[9].SetActive(true);
+                RockParts[10].SetActive(true);
+            meleeWeaponController.enabled = true;
 
-        if(crystals >= 10)
+            }
+        }
+        if (crystals >= 10)
         {
             XP += crystals * 10;
             crystals -= 10;
