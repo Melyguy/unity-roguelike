@@ -6,9 +6,9 @@ public class CollisonDetecting : MonoBehaviour
 {
     public MeleeWeapoController WC;
     public GameObject HitParticle;
-    public float Damage = 100f;
+    public float Damage = 25f;
     public bool hasHit = false;
-
+    public UpgradeHandler upgradeHandler;
 
     private void OnTriggerStay(Collider other)
     {
@@ -25,7 +25,7 @@ public class CollisonDetecting : MonoBehaviour
             if (targetdmg != null)
             {
                 
-                targetdmg.TakeDamage(Damage);
+                targetdmg.TakeDamage(Damage + upgradeHandler.damageIncrease);
             }
             Invoke("HitCooldown", 0.5f);
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using UnityEngine;
 
@@ -36,6 +37,7 @@ public class LightingManager : MonoBehaviour
             TimeOfDay += Time.deltaTime / secondsInDay;
             TimeOfDay %= 24;
             UpdateLighting(TimeOfDay / 24f);
+
         }
         if (TimeOfDay >= 20 || TimeOfDay <= 6)
         {
@@ -46,6 +48,7 @@ public class LightingManager : MonoBehaviour
         {
             isNight = false;
         }
+
         void OnValidate()
     {
         if (DirectionalLight != null) { 

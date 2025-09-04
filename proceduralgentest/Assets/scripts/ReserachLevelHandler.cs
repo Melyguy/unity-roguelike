@@ -12,6 +12,7 @@ public class ReserachLevelHandler : MonoBehaviour
     public int shrooms = 0;
     public float XPToNextLevel = 100f;
     public int Level = 0;
+    private int levelStored;
     public Slider Slider;
     public Image SliderFill;
     public TextMeshProUGUI LevelText;
@@ -22,6 +23,7 @@ public class ReserachLevelHandler : MonoBehaviour
     public bool isMutated = false;
     public bool isEvolved = false;
     public MeleeWeapoController meleeWeaponController;
+    public GameObject cardFrame;
 
     //ts is not effective, but idrc
     public GameObject[] RockParts;
@@ -31,6 +33,7 @@ public class ReserachLevelHandler : MonoBehaviour
 
     void Start()
     {
+        cardFrame.SetActive(false);
         movement = FindObjectOfType<movement>();
         meleeWeaponController = FindObjectOfType<MeleeWeapoController>();
     }
@@ -106,6 +109,14 @@ public class ReserachLevelHandler : MonoBehaviour
         {
             XP += crystals * 10;
             crystals -= 10;
+        }
+        if (Level != levelStored)
+        {
+            levelStored = Level;
+            Debug.Log("Level Up! New Level: " + Level);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            cardFrame.SetActive(true);
         }
     }
 }

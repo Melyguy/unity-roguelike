@@ -8,6 +8,8 @@ public class enemyHP : MonoBehaviour
     public float maxHP = 100;
     public float currHP = 0;
     public GameObject enemyobject;
+    public float xpGivenOnKill = 50f;
+    public ReserachLevelHandler researchHandler;
 
 
     // Start is called before the first frame update
@@ -29,5 +31,6 @@ public class enemyHP : MonoBehaviour
     void Death()
     {
         Destroy(enemyobject);
+        researchHandler.XP += xpGivenOnKill;
     }
 }
