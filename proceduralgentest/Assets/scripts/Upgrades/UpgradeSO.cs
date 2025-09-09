@@ -13,4 +13,6 @@ public class UpgradeSO : ScriptableObject
     public float moveSpeedIncrease;
     public Sprite Icon;
 
+    public bool activateleaching;
+
 }

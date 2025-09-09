@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7905d6c7e3627eb4d848d569ec178acc, type: 3}
-  m_Name: TestUpgrade
+  m_Name: Speedboostbasic
   m_EditorClassIdentifier: 
-  upgradeName: test
-  description: test
-  damageIncrease: 1
+  upgradeName: 'Speed boost: athletic'
+  description: You run faster
+  damageIncrease: 0
   moveSpeedIncrease: 1
   Icon: {fileID: 21300000, guid: 3b3f23f7c2aebcf419b1daaca987d1c4, type: 3}
+  activateleaching: 0

@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7905d6c7e3627eb4d848d569ec178acc, type: 3}
-  m_Name: TestUpgrade2
+  m_Name: Leaching
   m_EditorClassIdentifier: 
-  upgradeName: Test2
-  description: Test2
-  damageIncrease: 0
+  upgradeName: Leaching Fangs
+  description: Dealing damage heals you
+  damageIncrease: 1
   moveSpeedIncrease: 0
   Icon: {fileID: 21300000, guid: da1948e0e5880b94c877c2eac9baf57a, type: 3}
+  activateleaching: 1

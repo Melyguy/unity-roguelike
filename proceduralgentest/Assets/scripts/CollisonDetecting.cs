@@ -7,8 +7,10 @@ public class CollisonDetecting : MonoBehaviour
     public MeleeWeapoController WC;
     public GameObject HitParticle;
     public float Damage = 25f;
+    public float selfHeal = 10f;
     public bool hasHit = false;
     public UpgradeHandler upgradeHandler;
+    public playerhealth playerHP;
 
     private void OnTriggerStay(Collider other)
     {
@@ -26,6 +28,10 @@ public class CollisonDetecting : MonoBehaviour
             {
                 
                 targetdmg.TakeDamage(Damage + upgradeHandler.damageIncrease);
+                if(upgradeHandler.leachingActive)
+                {
+                    playerHP.Heal(selfHeal);
+                }
             }
             Invoke("HitCooldown", 0.5f);
 
