@@ -649,7 +649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &148670027
 RectTransform:
   m_ObjectHideFlags: 0
@@ -726,8 +726,10 @@ MonoBehaviour:
   playerMovement: {fileID: 5502247933800226896}
   damageIncrease: 0
   CardFrame: {fileID: 148670026}
-  Card1Description: {fileID: 498872984}
-  Card2Description: {fileID: 523242598}
+  Card1Name: {fileID: 1545139123}
+  Card2Name: {fileID: 1132647522}
+  Upgrades:
+  - {fileID: 11400000, guid: da94ce8f6392e624ba6f988822a94d25, type: 2}
 --- !u!1001 &155611382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -996,7 +998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3802278, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5798,7 +5800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.43604088, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6080,7 +6082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.75357676, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9217,7 +9219,17 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5502247933800226901}
+    - targetCorrespondingSourceObject: {fileID: 6390405914094909767, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5502247933800226910}
   m_SourcePrefab: {fileID: 100100000, guid: 0219f6c3ff1b05c4d8a5af23667e7018, type: 3}
+--- !u!54 &4386635821518656270 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 6810365624184429821, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
+    type: 3}
+  m_PrefabInstance: {fileID: 4386635821518656269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4644105533440393993
 GameObject:
   m_ObjectHideFlags: 0
@@ -9434,6 +9446,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc4d4b6cc73c5547a6bdd74e55bc576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5502247933800226910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502247933800226893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed002d90c1cea4429a5436af99ea584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currHealth: 0
+  DeathScreen: {fileID: 0}
+  cameraOBJ: {fileID: 0}
+  PM: {fileID: 5502247933800226896}
+  RB: {fileID: 4386635821518656270}
+  RestartKey: 0
+  HP: {fileID: 0}
 --- !u!23 &6589840549552562908
 MeshRenderer:
   m_ObjectHideFlags: 0
