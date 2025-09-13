@@ -14,6 +14,7 @@ public class playerhealth : MonoBehaviour
     public KeyCode RestartKey;
     public Slider HP;
     bool isDead = false;
+    public UpgradeHandler UH;
     void Start()
     {
         currHealth = maxHealth;
@@ -28,6 +29,12 @@ public class playerhealth : MonoBehaviour
         if (Input.GetKeyDown(RestartKey) && isDead == true)
         {
             Debug.Log("hello");
+        }
+        if (maxHealth < maxHealth + UH.HealthIncrease)
+        {
+            maxHealth = 100f + UH.HealthIncrease;
+            HP.maxValue = maxHealth;
+            currHealth = maxHealth;
         }
     }
     public void GetHit(float amount)

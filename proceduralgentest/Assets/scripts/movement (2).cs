@@ -25,7 +25,6 @@ public class movement : MonoBehaviour
     private float startyscle;
     public Transform arm1;
     public bool iscrouching;
-    //https://www.youtube.com/watch?v=xCxSjgYTw9c 3:51
 
 
     public float grounddrag;
@@ -90,6 +89,7 @@ public class movement : MonoBehaviour
     }
     void Update()
     {
+        
         Speedcontrol();
         myinput();
         StateHandler();

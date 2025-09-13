@@ -11,6 +11,8 @@ public class UpgradeSO : ScriptableObject
     public string description;
     public float damageIncrease;
     public float moveSpeedIncrease;
+    public float healthIncrease;
+    public float jumpHeightIncrease;
     public Sprite Icon;
 
     public bool activateleaching;

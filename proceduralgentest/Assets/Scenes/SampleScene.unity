@@ -767,12 +767,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 5502247933800226896}
   damageIncrease: 0
+  jumpHeightIncrease: 0
+  HealthIncrease: 0
   CardFrame: {fileID: 148670026}
   Card1Name: {fileID: 1545139123}
   Card2Name: {fileID: 1132647522}
+  Card3Name: {fileID: 1055880893}
+  card1Image: {fileID: 195405761}
+  card2Image: {fileID: 1397786455}
+  card3Image: {fileID: 1368931142}
   Upgrades:
   - {fileID: 11400000, guid: 9cb602e4855143f47a8b22a9a1ce55a7, type: 2}
   - {fileID: 11400000, guid: 13229127608be764bae79df9dda9c992, type: 2}
+  - {fileID: 11400000, guid: b0591cbd418ae8947b82eda28d801898, type: 2}
+  - {fileID: 11400000, guid: 44dce45bf3e69644bbfeab5f52910b7b, type: 2}
+  - {fileID: 11400000, guid: 889a763c2ea13ca4299c66d515a25395, type: 2}
   leachingActive: 0
   leachingAmount: 1
 --- !u!28 &152496833
@@ -2736,6 +2745,7 @@ GameObject:
   - component: {fileID: 346239700}
   - component: {fileID: 346239702}
   - component: {fileID: 346239701}
+  - component: {fileID: 346239703}
   m_Layer: 5
   m_Name: Card3
   m_TagString: Untagged
@@ -2803,6 +2813,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346239699}
   m_CullTransparentMesh: 1
+--- !u!114 &346239703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346239699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 346239701}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 148670030}
+        m_TargetAssemblyTypeName: UpgradeHandler, Assembly-CSharp
+        m_MethodName: Card3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &377877571 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4979328251794544388, guid: b22d823c25c884d40a2bc9bed7121581,
@@ -8324,7 +8390,7 @@ MonoBehaviour:
   lightingPreset: {fileID: 11400000, guid: 71b9ec6a7d92c8e4fa5cbb85534cfb4e, type: 2}
   TimeOfDay: 6
   isNight: 1
-  secondsInDay: 200
+  secondsInDay: 300
   daysPassed: 0
 --- !u!850595691 &2013182592
 LightingSettings:
@@ -9463,6 +9529,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -1.4449651e-10
       objectReference: {fileID: 0}
+    - target: {fileID: 4785972141014189441, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d4e590d64184eff4187b09bc9c0b64b1, type: 2}
     - target: {fileID: 5564579876203398716, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
         type: 3}
       propertyPath: m_RenderPostProcessing
@@ -9608,6 +9679,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6472728684637235796, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f31cb519c9887e74288a765404349ff1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -9935,6 +10011,7 @@ MonoBehaviour:
   RB: {fileID: 4386635821518656270}
   RestartKey: 0
   HP: {fileID: 1051962209}
+  UH: {fileID: 148670030}
 --- !u!23 &6589840549552562908
 MeshRenderer:
   m_ObjectHideFlags: 0

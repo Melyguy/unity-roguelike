@@ -83,6 +83,7 @@ public class ReserachLevelHandler : MonoBehaviour
                 RockParts[3].SetActive(true);
                 RockParts[4].SetActive(true);
                 RockParts[5].SetActive(true);
+                meleeWeaponController.enabled = true;
 
             }
         }
@@ -101,7 +102,6 @@ public class ReserachLevelHandler : MonoBehaviour
                 RockParts[8].SetActive(true);
                 RockParts[9].SetActive(true);
                 RockParts[10].SetActive(true);
-            meleeWeaponController.enabled = true;
 
             }
         }
