@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DamageBoost1
   m_EditorClassIdentifier: 
   upgradeName: Strength boost
-  description: 
+  description: Increases damage by 1
   damageIncrease: 1
   moveSpeedIncrease: 0
   healthIncrease: 0

@@ -17,6 +17,9 @@ public class UpgradeHandler : MonoBehaviour
     public TextMeshProUGUI Card1Name;
     public TextMeshProUGUI Card2Name;
     public TextMeshProUGUI Card3Name;
+    public TextMeshProUGUI Card1Desc;
+    public TextMeshProUGUI Card2Desc;
+    public TextMeshProUGUI Card3Desc;
     public RawImage card1Image;
     public RawImage card2Image;
     public RawImage card3Image;
@@ -35,12 +38,15 @@ public class UpgradeHandler : MonoBehaviour
             randomized = true;
             Card1Upgrade = Upgrades[Random.Range(0, Upgrades.Length)];
             Card1Name.text = Card1Upgrade.upgradeName;
+            Card1Desc.text = Card1Upgrade.description;
             card1Image.texture = Card1Upgrade.Icon.texture;
             Card2Upgrade = Upgrades[Random.Range(0, Upgrades.Length)];
             Card2Name.text = Card2Upgrade.upgradeName;
+            Card2Desc.text = Card2Upgrade.description;
             card2Image.texture = Card2Upgrade.Icon.texture;
             Card3Upgrade = Upgrades[Random.Range(0, Upgrades.Length)];
             Card3Name.text = Card3Upgrade.upgradeName;
+            Card3Desc.text = Card3Upgrade.description;
             card3Image.texture = Card3Upgrade.Icon.texture;
 
         }

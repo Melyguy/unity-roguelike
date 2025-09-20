@@ -14,6 +14,8 @@ public class LightingManager : MonoBehaviour
     public bool isNight = false;
     public float secondsInDay = 600f;
     public int daysPassed = 0;
+    public Material SkyboxDay;
+    public Material SkyboxNight;
 
     private void UpdateLighting(float timePercent)
     {
@@ -42,11 +44,13 @@ public class LightingManager : MonoBehaviour
         if (TimeOfDay >= 20 || TimeOfDay <= 6)
         {
             isNight = true;
+            RenderSettings.skybox = SkyboxNight;
 
         }
         else
         {
             isNight = false;
+            RenderSettings.skybox = SkyboxDay;
         }
 
         void OnValidate()

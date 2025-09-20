@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: JumpIncrease
   m_EditorClassIdentifier: 
   upgradeName: Jump Height Increase
-  description: 
+  description: Increases jump height by 1
   damageIncrease: 0
   moveSpeedIncrease: 0
   healthIncrease: 0

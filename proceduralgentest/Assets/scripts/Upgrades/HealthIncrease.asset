@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HealthIncrease
   m_EditorClassIdentifier: 
   upgradeName: Infected Armor
-  description: 
+  description: Increases max HP by 25
   damageIncrease: 0
   moveSpeedIncrease: 0
   healthIncrease: 25
