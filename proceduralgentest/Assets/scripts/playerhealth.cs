@@ -50,6 +50,7 @@ public class playerhealth : MonoBehaviour
             PM.jumpForce = 0f;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            DeathScreen.SetActive(true);
 
 
 

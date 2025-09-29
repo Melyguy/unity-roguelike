@@ -22,6 +22,7 @@ public class ReserachLevelHandler : MonoBehaviour
     public bool isInfected = false;
     public bool isMutated = false;
     public bool isEvolved = false;
+    public bool canresearch = true;
     public MeleeWeapoController meleeWeaponController;
     public GameObject cardFrame;
 
@@ -40,6 +41,10 @@ public class ReserachLevelHandler : MonoBehaviour
 
     void Update()
     {
+        if(canresearch == false)
+        {
+            XP += 1f * Time.deltaTime;
+        }
         crystalText.text = crystals.ToString();
         if (XP >= XPToNextLevel)
         {

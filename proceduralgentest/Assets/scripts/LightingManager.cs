@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-[ExecuteAlways]
 public class LightingManager : MonoBehaviour
 {
     [SerializeField] private Light DirectionalLight;
@@ -16,6 +16,12 @@ public class LightingManager : MonoBehaviour
     public int daysPassed = 0;
     public Material SkyboxDay;
     public Material SkyboxNight;
+    public bool Daypassed = false;
+    public bool finalBossDefeated = false;
+    public GameObject winScreen;
+    public AudioSource daymusic;
+    public AudioSource NightMusic;
+
 
     private void UpdateLighting(float timePercent)
     {
@@ -28,6 +34,7 @@ public class LightingManager : MonoBehaviour
         }
 
     }
+
     private void Update()
     {
         if (lightingPreset == null || DirectionalLight == null)
@@ -44,13 +51,38 @@ public class LightingManager : MonoBehaviour
         if (TimeOfDay >= 20 || TimeOfDay <= 6)
         {
             isNight = true;
+            daymusic.Pause();
+            if (!NightMusic.isPlaying)
+            {
+                NightMusic.Play();
+            }
             RenderSettings.skybox = SkyboxNight;
-
+            Daypassed = false;
         }
         else
         {
             isNight = false;
+            if (!daymusic.isPlaying)
+            {
+                daymusic.Play();
+                NightMusic.Pause();
+            }
+            if (TimeOfDay < 7 && Daypassed == false)
+            {
+                Daypassed = true;
+                daysPassed++;
+            }
             RenderSettings.skybox = SkyboxDay;
+        }
+
+        if(daysPassed == 3 && finalBossDefeated == true)
+        {
+            winScreen.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+
         }
 
         void OnValidate()
@@ -75,5 +107,25 @@ public class LightingManager : MonoBehaviour
             }
         }
     }
+   
 }
+    public void RestartDayCycle()
+    {
+        TimeOfDay = 0;
+        daysPassed = 0;
+        finalBossDefeated = false;
+        winScreen.SetActive(false);
+        Time.timeScale = 1f;
+    }
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+
+    }
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+    }
 }

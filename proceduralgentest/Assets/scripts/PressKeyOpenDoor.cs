@@ -19,17 +19,23 @@ public class PressKeyOpenDoor : MonoBehaviour
     public bool opened = false;
     public bool actions2 = false;
     public bool neutral = true;
+    public ReserachLevelHandler ResarchHandler;
+
     // Start is called before the first frame update
     void Start()
     {
         instruct.SetActive(false);
         lightingManager = FindObjectOfType<LightingManager>();
+        ResarchHandler = FindObjectOfType<ReserachLevelHandler>();
     }
 
     void OnTriggerEnter(Collider col)
     {
-        actions = true;
-        instruct.SetActive(true);
+        if(ResarchHandler.canresearch == true)
+        {
+            actions = true;
+            instruct.SetActive(true);
+        }
 
     }
 
@@ -43,11 +49,10 @@ public class PressKeyOpenDoor : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && harvestable == true)
+        if (Input.GetKeyDown(KeyCode.E) && harvestable == true && ResarchHandler.canresearch == true)
         {
             if (actions == true)
             {
-                ReserachLevelHandler ResarchHandler = FindObjectOfType<ReserachLevelHandler>();
                 instruct.SetActive(false);
                 //Door.GetComponent<Animator>().Play("DoorOpen");
                 actions = false;
