@@ -8,6 +8,7 @@ public class stanceChange : MonoBehaviour
     public string currentStance = "Offence";
     public MeleeWeapoController meleeWeapoController;
     public KeyCode ChangeKey = KeyCode.Q;
+    public movement movementScript;
 
     void Update()
     {
@@ -18,6 +19,8 @@ public class stanceChange : MonoBehaviour
                 currentStance = "Defence";
                 animator.SetBool("stance2", true);
                 meleeWeapoController.canattack = false;
+                movementScript.moveSpeed = 8f;
+
             }
             else
             {

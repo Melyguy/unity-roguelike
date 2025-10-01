@@ -25,6 +25,7 @@ public class ReserachLevelHandler : MonoBehaviour
     public bool canresearch = true;
     public MeleeWeapoController meleeWeaponController;
     public GameObject cardFrame;
+    public ShockAbsorb shockAbsorb;
 
     //ts is not effective, but idrc
     public GameObject[] RockParts;
@@ -89,6 +90,7 @@ public class ReserachLevelHandler : MonoBehaviour
                 RockParts[4].SetActive(true);
                 RockParts[5].SetActive(true);
                 meleeWeaponController.enabled = true;
+                shockAbsorb.enabled = true;
 
             }
         }

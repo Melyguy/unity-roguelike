@@ -16,23 +16,24 @@ public class MeleeWeapoController : MonoBehaviour
     public bool isAttacking = false;
     public float attacktime = 0.3f;
     public float combocd = 0.3f;
-    public float attacks = 0f;
+    public int attacks = 0;
     public AudioSource slash1SFX;
     public AudioSource slash2SFX;
+    public bool giveStatusEffect = false;
 
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0)){            //left click
-            if (canattack == true && attacks == 0f)
+            if (canattack == true && attacks == 0)
             {
                 SwordAtck();
-                attacks = 1f;
+                attacks = 1;
             }
-            else if(canattack == true && attacks == 1f)
+            else if(canattack == true && attacks == 1)
             {
                 SwordAtck2();
-                attacks = 0f;
+                attacks = 0;
             }
 
         }
@@ -49,6 +50,9 @@ public class MeleeWeapoController : MonoBehaviour
         StartCoroutine(ResetCombocld());
         isAttacking = true;
         slash1SFX.Play();
+
+
+
     }
     public void SwordAtck2()
     {
@@ -57,6 +61,7 @@ public class MeleeWeapoController : MonoBehaviour
         StartCoroutine(ResetCombocld());
         isAttacking = true;
         slash2SFX.Play();
+  
     }
 
 

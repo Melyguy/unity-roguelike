@@ -60,7 +60,7 @@ public class playerhealth : MonoBehaviour
     public void Heal(float amount)
     {
         currHealth += amount;
-        if (currHealth >= 100f)
+        if (currHealth >= maxHealth)
         {
             currHealth = maxHealth;
         }
