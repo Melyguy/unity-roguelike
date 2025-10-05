@@ -50,6 +50,12 @@ public class UpgradeHandler : MonoBehaviour
             card3Image.texture = Card3Upgrade.Icon.texture;
 
         }
+        if(CardFrame.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0f;
+        }
 
 
     }
@@ -72,6 +78,7 @@ public class UpgradeHandler : MonoBehaviour
         damageIncrease += Card1Upgrade.damageIncrease;
         playerMovement.jumpForce += Card1Upgrade.jumpHeightIncrease;
         HealthIncrease += Card1Upgrade.healthIncrease;
+        Time.timeScale = 1f;
 
     }
     public void Card2()
@@ -92,6 +99,7 @@ public class UpgradeHandler : MonoBehaviour
         damageIncrease += Card2Upgrade.damageIncrease;
         playerMovement.jumpForce += Card2Upgrade.jumpHeightIncrease;
         HealthIncrease += Card2Upgrade.healthIncrease;
+        Time.timeScale = 1f;
     }
     public void Card3()
     {
@@ -111,6 +119,7 @@ public class UpgradeHandler : MonoBehaviour
         damageIncrease += Card3Upgrade.damageIncrease;
         playerMovement.jumpForce += Card3Upgrade.jumpHeightIncrease;
         HealthIncrease += Card3Upgrade.healthIncrease;
+        Time.timeScale = 1f;
     }
 }
 

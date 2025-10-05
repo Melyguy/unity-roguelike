@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
+using UnityEngine.UI;
+
 
 public class ShockAbsorb : MonoBehaviour
 {
@@ -15,15 +17,23 @@ public class ShockAbsorb : MonoBehaviour
     public GameObject ReleaseHitbox;
     public bool isAttacking = false;
 
+    public Slider bar;
+    public GameObject baractive;
+
     void Update()
     {
         if(ph.currHealth != ph.maxHealth) // adding damage to absorption
         {
             currentDamageAbsorb = ph.maxHealth - ph.currHealth;
         }
+        if(baractive.activeInHierarchy == false)
+        {
+            baractive.SetActive(true);
+        }
+        bar.maxValue = maxDamageAbsorb;
+        bar.value = currentDamageAbsorb;
 
-
-        if(currentDamageAbsorb > maxDamageAbsorb) // clamping
+        if (currentDamageAbsorb > maxDamageAbsorb) // clamping
         {
             currentDamageAbsorb = maxDamageAbsorb;
         }
