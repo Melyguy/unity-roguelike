@@ -11,6 +11,7 @@ public class movement : MonoBehaviour
     [Header("Keybinds")]
     public KeyCode jumpkey = KeyCode.Space;
     public KeyCode crouchkey = KeyCode.LeftControl;
+    public KeyCode dashkey = KeyCode.LeftShift;
 
     [Header("Ground check")]
     public float PlayerHeight;
@@ -25,6 +26,12 @@ public class movement : MonoBehaviour
     private float startyscle;
     public Transform arm1;
     public bool iscrouching;
+
+    [Header("Dashing")]
+    public float dashforce;
+    public float dashcooldown;
+    public bool readyDash;
+
 
 
     public float grounddrag;
@@ -61,8 +68,9 @@ public class movement : MonoBehaviour
             state = movementstate.crouching;
             moveSpeed = crouchspeed;
         }
+        
 
-       else if(grounded)
+       else if (grounded)
         {
             state = movementstate.walking;
             animator.SetBool("jump", false);
@@ -136,6 +144,19 @@ public class movement : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, startyscle, transform.localScale.z);
             moveSpeed = movepeedcontrol; 
         }
+        if (Input.GetKeyDown(dashkey) && readyDash == true)
+        {
+            readyDash = false;
+            Vector3 dashdir = orient.forward * verticalinput + orient.right * horizantalinput;
+            animator.SetTrigger("Dash");
+            if (dashdir == Vector3.zero)
+                dashdir = orient.forward;
+
+            rb.AddForce(dashdir.normalized * dashforce, ForceMode.Impulse);
+            Invoke(nameof(resetDash), dashcooldown);
+
+
+        }
     }
     
     void MovePlayer()
@@ -189,5 +210,9 @@ public class movement : MonoBehaviour
     private void resetjump()
     {
         readyjump = true;
+    }
+    private void resetDash()
+    {
+        readyDash = true;
     }
 }
