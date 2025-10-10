@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15891358, g: 0.45746014, b: 0.61194, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -970,8 +969,8 @@ GameObject:
   - component: {fileID: 119693438}
   - component: {fileID: 119693437}
   - component: {fileID: 119693436}
-  - component: {fileID: 119693435}
   - component: {fileID: 119693434}
+  - component: {fileID: 119693439}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -1016,25 +1015,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &119693435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119693432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9214547d1437767468cdff38bd0ff65a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WC: {fileID: 1170155333}
-  HitParticle: {fileID: 1703599862}
-  Damage: 25
-  selfHeal: 10
-  hasHit: 0
-  upgradeHandler: {fileID: 148670030}
-  playerHP: {fileID: 1170155332}
 --- !u!65 &119693436
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1106,6 +1086,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119693432}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &119693439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119693432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8806e9f80daeab4faa633af46b4c739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WC: {fileID: 1170155346}
+  HitParticle: {fileID: 1703599862}
+  Damage: 25
+  selfHeal: 10
+  hasHit: 0
+  upgradeHandler: {fileID: 148670030}
+  playerHP: {fileID: 1170155332}
 --- !u!1 &125109577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,7 +1662,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223492588}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.089117035, y: -0, z: -0, w: 0.99602115}
+  m_LocalRotation: {x: 0.08911705, y: 0, z: 0, w: 0.99602115}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6607,7 +6606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9214547d1437767468cdff38bd0ff65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WC: {fileID: 1170155333}
+  WC: {fileID: 0}
   HitParticle: {fileID: 1703599862}
   Damage: 25
   selfHeal: 10
@@ -7257,7 +7256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852234902}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13531533, y: -0.000000017048128, z: 0.0000000023282873, w: 0.9908026}
+  m_LocalRotation: {x: 0.13531534, y: 0, z: 0, w: 0.9908026}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9112,12 +9111,12 @@ PrefabInstance:
     - target: {fileID: 3683817041320725063, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000030823387
+      value: -0.000000030823387
       objectReference: {fileID: 0}
     - target: {fileID: 3683817041320725063, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000034802499
+      value: 0.0000000034802499
       objectReference: {fileID: 0}
     - target: {fileID: 4785972141014189441, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
         type: 3}
@@ -9218,7 +9217,7 @@ PrefabInstance:
         type: 3}
       propertyPath: meleeWeaponController
       value: 
-      objectReference: {fileID: 1170155333}
+      objectReference: {fileID: 0}
     - target: {fileID: 6312474719539442737, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
         type: 3}
       propertyPath: RockParts.Array.data[0]
@@ -9289,6 +9288,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f31cb519c9887e74288a765404349ff1, type: 2}
+    - target: {fileID: 7634174591870148851, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634174591870148851, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634174591870148851, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634174591870148851, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7676192700777866931, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
         type: 3}
       propertyPath: m_Controller
@@ -9322,7 +9341,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6390405914094909767, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1170155333}
+      addedObject: {fileID: 1170155346}
     - targetCorrespondingSourceObject: {fileID: 6390405914094909767, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
         type: 3}
       insertIndex: -1
@@ -9499,29 +9518,6 @@ MonoBehaviour:
   RestartKey: 0
   HP: {fileID: 1051962209}
   UH: {fileID: 148670030}
---- !u!114 &1170155333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1170155314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07e75f3943f9ef4a85c6dcf38133727, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sword: {fileID: 119693432}
-  canattack: 1
-  anim: {fileID: 1170155335}
-  Atckcd: 0.5
-  isAttacking: 0
-  attacktime: 0.6
-  combocd: 0.3
-  attacks: 0
-  slash1SFX: {fileID: 280981625}
-  slash2SFX: {fileID: 1082912375}
-  giveStatusEffect: 0
 --- !u!95 &1170155335 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7676192700777866931, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
@@ -9542,7 +9538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1170155335}
   currentStance: Offence
-  meleeWeapoController: {fileID: 1170155333}
+  meleeWeapoController: {fileID: 1170155346}
   ChangeKey: 113
   movementScript: {fileID: 1170155327}
 --- !u!114 &1170155341
@@ -9562,6 +9558,29 @@ MonoBehaviour:
   isParrying: 0
   block: 0
   parrySuccess: 0
+--- !u!114 &1170155346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170155314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac38dc5d27efd404e9e8fcf112460a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sword: {fileID: 119693432}
+  canattack: 1
+  anim: {fileID: 1170155335}
+  Atckcd: 0.6
+  isAttacking: 0
+  attacktime: 0.6
+  combocd: 0.3
+  attacks: 0
+  slash1SFX: {fileID: 280981625}
+  slash2SFX: {fileID: 1082912375}
+  giveStatusEffect: 0
 --- !u!4 &1184824118 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1640230067222490723, guid: 0219f6c3ff1b05c4d8a5af23667e7018,
@@ -11538,7 +11557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496727294}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11219645, y: -0.00000000854887, z: 9.652473e-10, w: 0.9936861}
+  m_LocalRotation: {x: 0.112196475, y: 0, z: 0, w: 0.9936861}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

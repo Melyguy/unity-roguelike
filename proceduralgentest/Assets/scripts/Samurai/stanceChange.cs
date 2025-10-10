@@ -6,7 +6,7 @@ public class stanceChange : MonoBehaviour
 {
     public Animator animator;
     public string currentStance = "Offence";
-    public MeleeWeapoController meleeWeapoController;
+    public KatanaCombat meleeWeapoController;
     public KeyCode ChangeKey = KeyCode.Q;
     public movement movementScript;
 

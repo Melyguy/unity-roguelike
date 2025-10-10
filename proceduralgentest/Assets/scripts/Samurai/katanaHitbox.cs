@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisonDetecting : MonoBehaviour
+public class katanaHitbox : MonoBehaviour
 {
-    public MeleeWeapoController WC;
+    public KatanaCombat WC;
     public GameObject HitParticle;
     public float Damage = 25f;
     public float selfHeal = 10f;
