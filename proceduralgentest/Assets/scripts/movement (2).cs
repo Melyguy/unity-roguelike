@@ -7,6 +7,10 @@ public class movement : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
     public float movepeedcontrol;
+    public bool canSprint;
+    public float runTime; 
+    public float runMultiply;
+    public bool sprinting;
 
     [Header("Keybinds")]
     public KeyCode jumpkey = KeyCode.Space;
@@ -105,11 +109,11 @@ public class movement : MonoBehaviour
         
         if (grounded)
         {
-            rb.drag = grounddrag;
+            rb.linearDamping = grounddrag;
 
         }
         else
-            rb.drag = 0;
+            rb.linearDamping = 0;
     }
     void FixedUpdate()
     {
@@ -167,13 +171,16 @@ public class movement : MonoBehaviour
         if (movedir.magnitude > 0.1f)
         { // small threshold so tiny input doesn’t trigger running
             animator.SetBool("Running", true);
-            if(grounded)
+            if (grounded)
                 Footsteps.enabled = true;
         }
         else
         {
-
-
+            if (sprinting)
+            {
+                canSprint = true;
+                StopSprinting();
+            }
             animator.SetBool("Running", false);
             Footsteps.enabled = false;
         }
@@ -184,24 +191,30 @@ public class movement : MonoBehaviour
         else if (!grounded)
             rb.AddForce(movedir.normalized * moveSpeed * 10f * airmulti, ForceMode.Force);
 
+        if (canSprint && sprinting == false)
+        {
+            canSprint = false;
+            Invoke(nameof(startSprinting), runTime);
+
+        }
 
     }
 
 
     void Speedcontrol()
     {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         if(flatVel.magnitude > moveSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
         }
     }
 
     private void Jump()
     {
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         animator.SetBool("jump", true);
@@ -214,5 +227,19 @@ public class movement : MonoBehaviour
     private void resetDash()
     {
         readyDash = true;
+    }
+    private void startSprinting()
+    {
+        canSprint = false;
+        sprinting = true;
+        moveSpeed = moveSpeed * runMultiply;
+        movepeedcontrol = moveSpeed;
+    }
+    private void StopSprinting()
+    {
+        canSprint = true;
+        sprinting = false;
+        moveSpeed = moveSpeed / runMultiply;
+        movepeedcontrol = moveSpeed;
     }
 }

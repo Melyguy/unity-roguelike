@@ -5,7 +5,8 @@ using UnityEngine;
 public class MeleeWeapoController : MonoBehaviour
 {
     public GameObject Sword;
-    
+    public GameObject Player;
+
     public bool canattack = true;
 
     public Animator anim;
@@ -41,7 +42,7 @@ public class MeleeWeapoController : MonoBehaviour
 
 
     }
-
+        
 
     public void SwordAtck()
     {

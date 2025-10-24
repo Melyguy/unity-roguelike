@@ -10,6 +10,7 @@ public class navmashBaker : MonoBehaviour
     void Start()
     {
         surface.BuildNavMesh();
+
     }
 
     // Update is called once per frame

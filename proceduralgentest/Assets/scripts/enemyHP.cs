@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class enemyHP : MonoBehaviour
 {
+    public bool isFinalBoss;
     public float maxHP = 100;
     public float currHP = 0;
     public GameObject enemyobject;
     public float xpGivenOnKill = 50f;
-    public ReserachLevelHandler researchHandler;
+    private ReserachLevelHandler researchHandler;
     public bool isPoisoned;
     public bool isDespaired;
     public GameObject poisonSkull;
@@ -20,6 +21,7 @@ public class enemyHP : MonoBehaviour
     void Start()
     {
         currHP = maxHP;
+        researchHandler = FindObjectOfType<ReserachLevelHandler>();
     }
 
    

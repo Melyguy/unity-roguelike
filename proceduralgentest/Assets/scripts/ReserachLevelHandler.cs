@@ -23,7 +23,8 @@ public class ReserachLevelHandler : MonoBehaviour
     public bool isMutated = false;
     public bool isEvolved = false;
     public bool canresearch = true;
-    public MeleeWeapoController meleeWeaponController;
+    private MeleeWeapoController meleeWeaponController;
+    private KatanaCombat katanaCombat;
     public GameObject cardFrame;
     public ShockAbsorb shockAbsorb;
 
@@ -38,6 +39,7 @@ public class ReserachLevelHandler : MonoBehaviour
         cardFrame.SetActive(false);
         movement = FindObjectOfType<movement>();
         meleeWeaponController = FindObjectOfType<MeleeWeapoController>();
+        katanaCombat = FindObjectOfType<KatanaCombat>();
     }
 
     void Update()
@@ -90,6 +92,7 @@ public class ReserachLevelHandler : MonoBehaviour
                 RockParts[4].SetActive(true);
                 RockParts[5].SetActive(true);
                 meleeWeaponController.enabled = true;
+                katanaCombat.enabled = true;
                 shockAbsorb.enabled = true;
 
             }

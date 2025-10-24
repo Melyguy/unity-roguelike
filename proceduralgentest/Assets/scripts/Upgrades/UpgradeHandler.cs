@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UpgradeHandler : MonoBehaviour
 {
 
-    public movement playerMovement;
+    private movement playerMovement;
     public float damageIncrease = 0;
     private float moveSpeedIncrease;
     public float jumpHeightIncrease;
@@ -31,6 +31,11 @@ public class UpgradeHandler : MonoBehaviour
     public bool leachingActive = false;
     public float leachingAmount = 1f;
 
+
+    void Start()
+    {
+        playerMovement = FindObjectOfType<movement>();
+    }
     void Update()
     {
         if (!randomized)
