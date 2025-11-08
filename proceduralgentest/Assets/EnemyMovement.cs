@@ -2,57 +2,33 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Rigidbody))]
 public class EnemyMovement : MonoBehaviour
 {
-    [Header("References")]
-    public Transform player;
-
-    [Header("Settings")]
-    public float chaseRange = 15f;
-    public float stopDistance = 2f;
-    public float updateRate = 0.5f; // seconds between destination updates
-
-    [Header("Ground Check")]
-    public LayerMask groundMask;
-    public float groundCheckDistance = 0.3f;
 
     private NavMeshAgent agent;
-    private float nextUpdateTime;
+    private Rigidbody rb;
+    private Transform target;
+    public Transform Enemy;
 
-    void Awake()
+    void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        if (player == null)
-        {
-            GameObject foundPlayer = GameObject.FindWithTag("Player");
-            if (foundPlayer != null)
-                player = foundPlayer.transform;
-        }
+        rb = GetComponent<Rigidbody>();
+
+        rb.isKinematic = true;
+
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+            target = playerObj.transform;
     }
 
     void Update()
     {
-        if (player == null) return;
-
-        float distance = Vector3.Distance(transform.position, player.position);
-
-        // Ground check (optional)
-        if (!IsGrounded()) return;
-
-        if (distance <= chaseRange)
+        if (target != null && agent.isOnNavMesh)
         {
-            if (Time.time >= nextUpdateTime)
-            {
-                agent.SetDestination(player.position);
-                nextUpdateTime = Time.time + updateRate;
-            }
-
+            agent.SetDestination(target.position);
         }
+        Enemy.LookAt(target);
     }
-
-    private bool IsGrounded()
-    {
-        return Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundMask);
-    }
-
 }
