@@ -36,7 +36,7 @@ public class KatanaCombat : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {            //left click
             if (canattack == true && attacks == 0 && PM.grounded == true)
             {

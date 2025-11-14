@@ -1,34 +1,46 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Rigidbody))]
 public class EnemyMovement : MonoBehaviour
 {
-
     private NavMeshAgent agent;
     private Rigidbody rb;
-    private Transform target;
-    public Transform Enemy;
+    public Transform target;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
 
-        rb.isKinematic = true;
+        rb.isKinematic = false;
+        rb.useGravity = true;
+
+        agent.updatePosition = false;
+        agent.updateRotation = true;
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
+        if (playerObj != null && playerObj.activeSelf)
             target = playerObj.transform;
     }
 
     void Update()
     {
-        if (target != null && agent.isOnNavMesh)
+        if (target != null && agent.isOnNavMesh )
         {
             agent.SetDestination(target.position);
         }
-        Enemy.LookAt(target);
+    }
+
+    void FixedUpdate()
+    {
+        if (agent.isOnNavMesh)
+        {
+            Vector3 nextPos = agent.nextPosition;
+            rb.MovePosition(Vector3.MoveTowards(rb.position, nextPos, agent.speed * Time.fixedDeltaTime));
+
+            agent.nextPosition = rb.position;
+        }
     }
 }
