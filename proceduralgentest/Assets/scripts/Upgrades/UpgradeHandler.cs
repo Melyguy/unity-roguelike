@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +27,7 @@ public class UpgradeHandler : MonoBehaviour
     public RawImage card3Image;
     private bool randomized = false;
     public UpgradeSO[] Upgrades;
+    public List<UpgradeSO> UpgradesOwned;
     private UpgradeSO Card1Upgrade;
     private UpgradeSO Card2Upgrade;
     private UpgradeSO Card3Upgrade;
@@ -41,15 +44,15 @@ public class UpgradeHandler : MonoBehaviour
         if (!randomized)
         {
             randomized = true;
-            Card1Upgrade = Upgrades[Random.Range(0, Upgrades.Length)];
+            Card1Upgrade = Upgrades[UnityEngine.Random.Range(0, Upgrades.Length)];
             Card1Name.text = Card1Upgrade.upgradeName;
             Card1Desc.text = Card1Upgrade.description;
             card1Image.texture = Card1Upgrade.Icon.texture;
-            Card2Upgrade = Upgrades[Random.Range(0, Upgrades.Length)];
+            Card2Upgrade = Upgrades[UnityEngine.Random.Range(0, Upgrades.Length)];
             Card2Name.text = Card2Upgrade.upgradeName;
             Card2Desc.text = Card2Upgrade.description;
             card2Image.texture = Card2Upgrade.Icon.texture;
-            Card3Upgrade = Upgrades[Random.Range(0, Upgrades.Length)];
+            Card3Upgrade = Upgrades[UnityEngine.Random.Range(0, Upgrades.Length)];
             Card3Name.text = Card3Upgrade.upgradeName;
             Card3Desc.text = Card3Upgrade.description;
             card3Image.texture = Card3Upgrade.Icon.texture;
@@ -79,10 +82,13 @@ public class UpgradeHandler : MonoBehaviour
         {
             leachingAmount += 2f;
         }
-        playerMovement.moveSpeed += Card2Upgrade.moveSpeedIncrease;
+        playerMovement.moveSpeed += Card1Upgrade.moveSpeedIncrease;
         damageIncrease += Card1Upgrade.damageIncrease;
         playerMovement.jumpForce += Card1Upgrade.jumpHeightIncrease;
         HealthIncrease += Card1Upgrade.healthIncrease;
+
+        UpgradesOwned.Add(Card1Upgrade);
+
         Time.timeScale = 1f;
 
     }
@@ -104,6 +110,8 @@ public class UpgradeHandler : MonoBehaviour
         damageIncrease += Card2Upgrade.damageIncrease;
         playerMovement.jumpForce += Card2Upgrade.jumpHeightIncrease;
         HealthIncrease += Card2Upgrade.healthIncrease;
+
+        UpgradesOwned.Add(Card2Upgrade);
         Time.timeScale = 1f;
     }
     public void Card3()
@@ -124,6 +132,7 @@ public class UpgradeHandler : MonoBehaviour
         damageIncrease += Card3Upgrade.damageIncrease;
         playerMovement.jumpForce += Card3Upgrade.jumpHeightIncrease;
         HealthIncrease += Card3Upgrade.healthIncrease;
+        UpgradesOwned.Add(Card3Upgrade);
         Time.timeScale = 1f;
     }
 }
